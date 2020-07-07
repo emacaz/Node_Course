@@ -6,13 +6,12 @@ function addUser(user) {
 }
 
 
-async function getUsers() {
-  const users = await Model.find()
-  return users
+function listUsers() {
+  return Model.find()
 }
 
 
 module.exports = {
   add: addUser,
-  list: getUsers,
+  list: listUsers,
 }

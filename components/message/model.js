@@ -4,7 +4,14 @@ const Schema = mongoose.Schema
 
 // creando el esquema
 const mySchema = new Schema({
-  user: String,
+  chat: {
+    type: Schema.ObjectId,
+    ref: 'Chat',
+  },
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User',
+  },
   message: {
     type: String,
      required: true,
