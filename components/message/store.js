@@ -9,7 +9,7 @@ async function getMessages(filterUser) {
   return new Promise((resolve, reject) => {
     let filter = {}
     if (filterUser !== null) {
-      filter = { user: filterUser }
+      filter = { chat: filterChat }
     }
     Model.find(filter)
       .populate('user')
@@ -36,7 +36,7 @@ async function updateText(id, message) {
 }
 
 
-function removeMessages(id) {
+function removeMessage(id) {
   return Model.deleteOne({
     _id: id
   })
@@ -46,5 +46,5 @@ module.exports = {
   add: addMessage,
   list: getMessages,
   updateText: updateText,
-  remove: removeMessages,
+  remove: removeMessage,
 }
